@@ -43,6 +43,7 @@
 
 (define all-mappings
   (list map-buying map-maint map-doors map-persons map-lug-boot map-safety map-class))
+
 (define (map-data-to-nums data-vector)
   (map (lambda (func value) (func value)) all-mappings data-vector))
 
@@ -105,10 +106,7 @@
           (else (helper res (cdr rem) (+ n 1)))))
   (helper (cons (car pairs) 0) (cdr pairs) 1))
 
-;(define (take-k-min-dist pairs k)
-; (define (helper rSes n)
 
-;  )
 ; mergesorts list of pairs by the first value
 (define (merge pred lst1 lst2)
   (define (helper res l1 l2)
@@ -169,4 +167,5 @@
       (map last testing-set))))
    (length testing-set)))
 
-;(test-kNN training-set testing-set 3)
+(test-kNN training-set testing-set 3); for small K it is almost 100 percent success with this data set
+(test-kNN training-set testing-set 300) ; the bigger the k the more randomized thus inaccurate
