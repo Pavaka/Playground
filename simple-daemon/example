@@ -1,0 +1,12 @@
+/var/log/local7.info {
+	rotate 3
+	daily
+	missingok
+	notifempty
+	delaycompress
+	compress
+	postrotate
+		invoke-rc.d rsyslog rotate > /dev/null
+	endscript
+}
+

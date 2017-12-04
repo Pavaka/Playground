@@ -1,0 +1,22 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:          exampled
+# Required-Start:    $syslog
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:
+# Short-Description: Regular background program processing daemon
+### END INIT INFO
+
+if [ "$1" == "start" ]
+then
+	/usr/bin/exampled /run/exampled.pid
+elif [ "$1" == "restart" ]
+then
+	pkill exampled
+	/usr/bin/exampled /run/exampled.pid
+elif [ "$1" == "stop" ]
+then
+	pkill exampled
+fi
